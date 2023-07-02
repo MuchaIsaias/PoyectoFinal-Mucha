@@ -1,0 +1,186 @@
+@use'./variables';
+
+@mixin flex($display,$direccion,$horizontal,$wrap){
+    display:$display;
+    flex-direction:$direccion;
+    justify-content:$horizontal;
+    flex-wrap:$wrap;
+}
+.top_header{
+    div{
+        display: flex;
+        justify-content: space-evenly;
+        .top_header-titulo{
+            h1{
+                font-size: 2rem;
+                color: variables.$color-tercero;
+                margin-bottom: 0rem;
+                padding-top: 0.2rem;
+            }
+        }
+        .contactos-top_header{
+            display: flex;
+            align-items: center;
+            gap:2rem;
+            img{
+                    width: 2rem;
+                }
+            p{
+                font-size: 1.5rem;
+                font-weight: 480; 
+                color: variables.$color-tercero;
+                letter-spacing:1px;
+                
+            }
+        }
+        .top_header-redes{
+            display: flex;
+            gap:2rem;
+            flex-wrap: wrap;
+            margin-bottom: 0rem;
+            list-style: none;
+            a{
+                img{
+                    width: 2.8rem;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .body_header{
+        @include flex(flex,row,space-evenly,wrap);
+        background-color: variables.$fonts-color;
+        border-bottom:variables.$box;
+        border-top:variables.$border-gris;
+        form{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .input{
+                width: 43rem;
+                height: initial;
+                font-size: 2rem;
+                border:variables.$border-gris;
+                padding: 1rem;
+            }
+            .boton-input-header{
+                font-size: 2rem;
+                height: initial;
+                width: 8.3rem;
+                padding: 1rem;
+                border: variables.$border-gris;
+                img{
+                    width: auto;
+                    height: 2.5rem;
+                }
+            }
+        }
+        img{
+            width: 12rem;
+            height: 11rem;
+        }
+    }
+}
+.header{
+    width: 100%;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    .header-nav{
+        background-color: variables.$color_primario;
+        height: 6rem;
+        color: variables.$color-tercero;
+        box-shadow: 0 4px 18px 0 rgba(0,0,0,.12),0 7px 10px -5px rgba(0,0,0,.15);;
+        a{
+            display: none;
+        }
+        .menu{
+            display: none;
+        }
+        input{
+            display: none;
+        }
+        .nav-ul{
+            align-items: center;
+            font-size: 5rem;
+            list-style: none;
+            height: 100%;
+            margin: 0rem;
+            .nav-ul-li{
+                align-items: center;
+                height: 100%;
+                display: flex;
+                padding-left: 1rem;
+                transition: transform 0.5s;
+                a{
+                    color: variables.$fonts-color;;
+                    text-decoration: none;
+                    font-weight: 600;
+                    letter-spacing:1.4px;
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 4rem;
+                        padding-right: 1rem;
+                    }
+                }
+            }
+            .nav-ul-li:nth-child(2){
+                padding-left: 3.5rem;
+            }
+            .nav-ul-li:not(.li-categorias){
+                &:hover{
+                    transform: translateY(-0.5rem);
+                    background-color: variables.$color-secundario;
+                    font-size: 4rem;
+                    color: variables.$color-tercero;
+                    }
+            }
+            .li-categorias{
+                border-right: variables.$box;
+                height: 65%;
+                justify-content: end;
+                a{
+                    .flecha{
+                        width: 1.5rem;
+                        height: 1.7rem;
+                        color: variables.$color-cuarto;
+                        margin: 0rem 1rem 0rem 1rem;
+                        padding-right: 0rem;
+                    }
+                }
+                &:hover > ul{
+                    display: block;
+                    font-size: 4.4rem;
+                    top: 5rem;
+                    padding: 0rem;
+                    position: absolute;
+                    left: 4.1rem;
+                }
+                ul{
+                    background-color: variables.$color_primario;
+                    display: none;
+                    width: 20rem;
+                    list-style: none;
+                    li{
+                        padding-left: 1rem;
+                        padding-bottom: 1rem;
+                        width: 100%;
+                        border-bottom: variables.$box;
+                        a{
+                            display: block;
+                            width: 100%;
+                        }
+                        &:hover{
+                            background-color: variables.$color-secundario;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+p{
+    margin: 0rem;
+}
